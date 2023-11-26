@@ -30,4 +30,6 @@ public:
 
 	UPROPERTY(EditAnywhere)
 		UStaticMeshComponent* MyMesh;
+
+	float m_RunningTime;
 };

@@ -24,13 +24,20 @@ AMyActor::AMyActor()
 void AMyActor::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 }
 
 // Called every frame
 void AMyActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	FVector NewLocation = GetActorLocation();
+	float DeltaHeight = FMath::Sin(5.0f * (m_RunningTime + DeltaTime)) - FMath::Sin(5.0f * (m_RunningTime));
+	NewLocation.Z += DeltaHeight * 20.0f;
+	m_RunningTime += DeltaTime;
+
+	SetActorLocation(NewLocation);
 
 }
 
